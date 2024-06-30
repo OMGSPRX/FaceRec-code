@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block title %}Attendance Record{% endblock %} {%
+block additional_css %}
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/table.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <h2 class="headline">Attendance Record</h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Name</div>
+      <div class="col col-2">id Karyawan</div>
+      <div class="col col-3">Check in time</div>
+    </li>
+    <!-- <li class="table-row">
+        <div class="col col-1" data-label="Name">Piyasa</div>
+        <div class="col col-2" data-label="Roll No.">20101106052</div>
+        <div class="col col-3" data-label="Attendace status">Present</div>
+      </li> -->
+    {% for row in data %}
+    <li class="table-row">
+      <div class="col col-1" data-label="Name">{{row[0]}}</div>
+      <div class="col col-2" data-label="Roll No.">{{row[1]}}</div>
+      <div class="col col-3" data-label="Attendace status">{{row[2]}}</div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
